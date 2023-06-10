@@ -196,8 +196,8 @@ if selected == "Obesity by Subregion":
         st.subheader("Obesity Prevalence Among Adults in the MENA Region")
         MENAData = data.query("Country in ['Algeria', 'Bahrain', 'Egypt', 'Iran', 'Iran (Islamic Republic of)', 'Iraq', 'Israel', 'Jordan', 'Kuwait', 'Lebanon','Libya', 'Morocco', 'Oman', 'Qatar', 'Saudi Arabia', 'Syria', 'Syrian Arab Republic', 'Tunisia', 'United Arab Emirates', 'Yemen']")
         tempdf = MENAData.query("Year=="+str(sel_year2))
-
-        fig = px.line_polar(tempdf, r='Obesity', theta='Country', color='Sex', line_close=True, line_shape='spline', range_r=[0,47])
+        tempdff= tempdf.copy()
+        fig = px.line_polar(tempdff, r='Obesity', theta='Country', color='Sex', line_close=True, line_shape='spline', range_r=[0,47])
         st.write(fig)
 
         if sel_year2 == 2016:
