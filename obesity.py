@@ -195,10 +195,10 @@ if selected == "Obesity by Subregion":
         #Visualization no. 5
         st.subheader("Obesity Prevalence Among Adults in the MENA Region")
         MENAData = data.query("Country in ['Algeria', 'Bahrain', 'Egypt', 'Iran', 'Iran (Islamic Republic of)', 'Iraq', 'Israel', 'Jordan', 'Kuwait', 'Lebanon','Libya', 'Morocco', 'Oman', 'Qatar', 'Saudi Arabia', 'Syria', 'Syrian Arab Republic', 'Tunisia', 'United Arab Emirates', 'Yemen']")
-        #tempdf = MENAData.query("Year=="+str(sel_year2))
+        tempdf = MENAData.query("Year=="+str(sel_year2))
 
-        fig = px.line_polar(MENAData, r='Obesity', theta='Country', color='Sex', line_close=True, line_shape='spline', range_r=[0,47])
-        st.write(fig)
+        #fig = px.line_polar(tempdf, r='Obesity', theta='Country', color='Sex', line_close=True, line_shape='spline', range_r=[0,47])
+        #st.write(fig)
 
         if sel_year2 == 2016:
             st.info("**We noticed that the female obesity prevalence rate is significantly higher than that of male with the exception of occupied Palestine. In addition, the highest rates are noticed in Kuwait, Qatar, and Saudi Arabia.**")
