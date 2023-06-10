@@ -1,5 +1,3 @@
-# Author    : Mohamad Kheir EL Daouk
-# Created on: Sun Sep 25 19:18:27 2022
 
 import hydralit_components as hc
 from streamlit_option_menu import option_menu
@@ -195,14 +193,11 @@ if selected == "Obesity by Subregion":
     col1, col2 = st.columns(2, gap="large") 
     with col1:      
         #Visualization no. 5
-        #st.subheader("Obesity Prevalence Among Adults in 2016 for the MENA Region")
         st.subheader("Obesity Prevalence Among Adults in the MENA Region")
-                      
         MENAData = data.query("Country in ['Algeria', 'Bahrain', 'Egypt', 'Iran', 'Iran (Islamic Republic of)', 'Iraq', 'Israel', 'Jordan', 'Kuwait', 'Lebanon','Libya', 'Morocco', 'Oman', 'Qatar', 'Saudi Arabia', 'Syria', 'Syrian Arab Republic', 'Tunisia', 'United Arab Emirates', 'Yemen']")
         tempdf = MENAData.query("Year=="+str(sel_year2))
 
-        fig = px.line_polar(tempdf, r='Obesity', theta='Country', color='Sex', line_close=True, 
-                            line_shape='spline', range_r=[0,47])
+        fig = px.line_polar(tempdf, r='Obesity', theta='Country', color='Sex', line_close=True, line_shape='spline', range_r=[0,47])
         st.write(fig)
 
         if sel_year2 == 2016:
